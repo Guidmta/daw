@@ -21,6 +21,9 @@
             padding: 20px 40px;
             background-color: #161b22;
             border-bottom: 1px solid #30363d;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .nav-brand {
@@ -52,10 +55,11 @@
             color: #ffffff;
         }
 
-        /* Fő tartalom */
+        /* Fő tartalom (Hero) */
         .hero {
             text-align: center;
             padding: 100px 20px;
+            border-bottom: 1px solid #21262d;
         }
 
         .hero img {
@@ -84,10 +88,159 @@
             text-decoration: none;
             font-weight: bold;
             transition: background 0.3s;
+            display: inline-block;
         }
 
         .cta-btn:hover {
             background-color: #238636;
+        }
+
+        /* Csatlakozás szekció */
+        .section-container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .connect-box {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .connect-box img {
+            width: 400px;
+            border-radius: 5px;
+        }
+
+        .connect-content h2 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        .connect-content p {
+            color: #8b949e;
+            line-height: 1.5;
+        }
+
+        .connect-content ol {
+            color: #c9d1d9;
+            padding-left: 20px;
+            line-height: 1.8;
+        }
+
+        .connect-content .footer-text {
+            color: #2ea043;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        /* Rendszerkövetelmények */
+        .specs-grid {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .spec-card {
+            flex: 1;
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        .spec-card h3 {
+            margin-top: 0;
+            color: #ffffff;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+        }
+
+        .spec-card ul {
+            list-style: none;
+            padding: 0;
+            color: #c9d1d9;
+            line-height: 2;
+            font-size: 14px;
+        }
+
+        .spec-card ul li strong {
+            color: #ffffff;
+        }
+
+        /* Discord doboz */
+        .discord-box {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .discord-content h3 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        .discord-content p {
+            color: #8b949e;
+            margin-bottom: 20px;
+        }
+
+        .discord-content ul {
+            list-style: none;
+            padding: 0;
+            color: #2ea043;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .discord-btn {
+            background-color: #5865F2;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .discord-btn:hover {
+            background-color: #4752C4;
+        }
+
+        /* Alsó lábléc (Footer) */
+        footer {
+            background-color: #161b22;
+            border-top: 1px solid #30363d;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #8b949e;
+            font-size: 14px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .footer-brand img {
+            width: 25px;
         }
     </style>
 </head>
@@ -100,22 +253,92 @@
             <span>SEELMTA.HU</span>
         </div>
         <div class="nav-links">
-            <!-- Itt mutat az UCP gomb az ucp.html fájlra -->
             <a href="ucp.html">UCP</a>
             <a href="#">Segítség</a>
             <a href="#">Közösség</a>
-            <a href="discord-szabalyzat">Discord Szabályzat</a>
-            <a href="szabalyzat">Szerver Szabályzat</a>
+            <a href="#">Discord Szabályzat</a>
+            <a href="#">Szerver Szabályzat</a>
         </div>
     </div>
 
-    <!-- Főoldal közepe -->
+    <!-- Főoldal teteje (Hero) -->
     <div class="hero">
         <img src="logo.png" alt="SEELMTA Logo">
         <h1>SEELMTA</h1>
         <p>Kezdd el a saját RP Karaktered a SEELMTA szerverén, és alakítsd úgy a karaktered - ahogyan szeretnéd!</p>
-        <a href="#" class="cta-btn">► Csatlakozz most</a>
+        <a href="#csatlakozas" class="cta-btn">► Csatlakozz most</a>
     </div>
+
+    <!-- Görgethető tartalmak -->
+    <div class="section-container" id="csatlakozas">
+        
+        <!-- Csatlakozás doboz -->
+        <div class="connect-box">
+            <div class="connect-content">
+                <h2>Csatlakozás a SEELMTA szerverére</h2>
+                <p><strong>Légy részese Magyarország legnagyobb és legoptimalizáltabb GazdagRP közösségének!</strong><br>Vágj bele a második életedbe, itt minden lehetséges!</p>
+                <ol>
+                    <li>Grand Theft Auto: San Andreas telepítése</li>
+                    <li>MTA:SA kliens letöltése</li>
+                    <li>MTA:SA kliens indítása</li>
+                    <li>SEELMTA szócska begépelése a keresőbe</li>
+                </ol>
+                <div class="footer-text">Kellemes időtöltést kívánunk!</div>
+                <a href="#" class="cta-btn">↓ MTA:SA letöltése</a>
+            </div>
+            <img src="monitor.png" alt="MTA Monitor">
+        </div>
+
+        <!-- Rendszerkövetelmények -->
+        <div class="specs-grid">
+            <div class="spec-card">
+                <h3>Minimum rendszerkövetelmény</h3>
+                <ul>
+                    <li><strong>Operációs rendszer:</strong> Windows 10</li>
+                    <li><strong>CPU:</strong> Intel Core 2 Quad CPU Q6600 @ 2.40GHz / AMD Phenom 9850 Quad-Core Processor @ 2.5GHz</li>
+                    <li><strong>RAM:</strong> 6GB</li>
+                    <li><strong>Videókártya:</strong> NVIDIA 9800 GT 1GB / AMD HD 4870 1GB</li>
+                    <li><strong>Felbontás:</strong> legalább 1600x900</li>
+                    <li><strong>Tárhely:</strong> 10GB</li>
+                </ul>
+            </div>
+            <div class="spec-card">
+                <h3>Ajánlott rendszerkövetelmény</h3>
+                <ul>
+                    <li><strong>Operációs rendszer:</strong> Windows 10/11</li>
+                    <li><strong>CPU:</strong> Intel Core i5 3470 @ 3.2GHz (4 CPUs) / AMD X8 FX-8350 @ 4GHz (8 CPUs)</li>
+                    <li><strong>RAM:</strong> 12GB</li>
+                    <li><strong>Videókártya:</strong> NVIDIA GTX 660 2GB / AMD HD 7870 2GB</li>
+                    <li><strong>Felbontás:</strong> legalább 1920x1080</li>
+                    <li><strong>Tárhely:</strong> 15GB (SSD)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Discord szekció -->
+        <div class="discord-box">
+            <div class="discord-content">
+                <h3>Csatlakozz Discord szerverünkre</h3>
+                <p>Légy részese a legaktívabb MTA közösségnek! Kérdezz, beszélgess más játékosokkal, értesülj az eseményekről első kézből.</p>
+                <ul>
+                    <li>✔ Közvetlenül tudsz beszélni a vezetőséggel</li>
+                    <li>✔ Eseményekkel és a versenyekkel tisztában leszel</li>
+                    <li>✔ Amennyiben valamit jelenteni itt tudod megtenni</li>
+                </ul>
+            </div>
+            <a href="#" class="discord-btn">💬 Csatlakozás</a>
+        </div>
+
+    </div>
+
+    <!-- Lábléc -->
+    <footer>
+        <div class="footer-brand">
+            <img src="logo.png" alt="Logo">
+            <span>SEELMTA</span>
+        </div>
+        <div>A legmodernebb magyar RolePlay közösség © 2026</div>
+    </footer>
 
 </body>
 </html>
