@@ -24,14 +24,14 @@ namespace SeelmtaLauncher
 
         private void InitializeComponent()
         {
-            // Ablak alapbeállításai (Sötét, modern stílus)
+            // Ablak alapbeállításai
             this.Size = new Size(1000, 650);
             this.FormBorderStyle = FormBorderStyle.Sizable;
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.BackColor = Color.FromArgb(18, 18, 18); // Sötét háttér
+            this.BackColor = Color.FromArgb(18, 18, 18);
             this.Text = "Seelmta Launcher";
 
-            // Bal oldalsáv (Panel)
+            // Bal oldalsáv
             sidebarPanel = new Panel
             {
                 Dock = DockStyle.Left,
@@ -39,7 +39,6 @@ namespace SeelmtaLauncher
                 BackColor = Color.FromArgb(24, 24, 24)
             };
 
-            // Oldalsó gombok (ikonok helyett szimbólumok)
             homeButton = CreateSidebarButton("🏠", 20);
             storeButton = CreateSidebarButton("💎", 85);
             webButton = CreateSidebarButton("🌐", 150);
@@ -74,7 +73,7 @@ namespace SeelmtaLauncher
                 TextAlign = ContentAlignment.MiddleCenter
             };
 
-            // Leírás szöveg
+            // Leírás
             descLabel = new Label
             {
                 Text = "Légy részese Magyarország legnagyobb és legismertebb gazdag RolePlay\nközösségének!\n\nVágj bele a második életedbe, itt minden lehetséges!",
@@ -85,12 +84,12 @@ namespace SeelmtaLauncher
                 TextAlign = ContentAlignment.MiddleCenter
             };
 
-            // Zöld Indítás gomb (Amikor rákatintanak, szándékosan SEMMI sem történik)
+            // Zöld Indítás gomb (amire ha rákkattintanak, szándékosan semmi sem történik)
             startButton = new Button
             {
                 Text = "▶  Seelmta indítása",
                 ForeColor = Color.White,
-                BackColor = Color.FromArgb(16, 125, 78), // Zöld szín a kép alapján
+                BackColor = Color.FromArgb(16, 125, 78),
                 Font = new Font("Segoe UI", 12, FontStyle.Bold),
                 Size = new Size(260, 50),
                 Location = new Point(420, 390),
@@ -99,13 +98,13 @@ namespace SeelmtaLauncher
             };
             startButton.FlatAppearance.BorderSize = 0;
 
-            // ITT VAN MEGADVA: Amikor rákattintanak, szándékosan semmi sem történik
+            // Kattintás esemény: szándékosan üres, nem csinál semmit
             startButton.Click += (s, e) =>
             {
-                // Szándékosan üresen hagyva, hogy ne csináljon semmit
+                // Semmit sem csinál
             };
 
-            // Vezérlők hozzáadása az ablakhoz
+            // Elemek hozzáadása az ablakhoz
             this.Controls.Add(sidebarPanel);
             this.Controls.Add(mainTitle);
             this.Controls.Add(versionBadge);
