@@ -45,25 +45,42 @@
 
         .nav-links {
             display: flex;
+            align-items: center;
             gap: 25px;
             padding-right: 50px;
         }
 
-        .nav-links a {
+        .nav-links a:not(.launcher-nav-btn) {
             color: #c9d1d9;
             text-decoration: none;
             font-size: 14px;
             transition: color 0.3s;
         }
 
-        .nav-links a:hover {
+        .nav-links a:not(.launcher-nav-btn):hover {
             color: #ffffff;
         }
 
-        /* Főoldal teteje (Hero) - Hatalmas alsó távolság, hogy rengeteg hely legyen */
+        /* Lila launcher gomb a menüben */
+        .launcher-nav-btn {
+            background-color: #8b5cf6; /* Lila szín */
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .launcher-nav-btn:hover {
+            background-color: #7c3aed; /* Sötétebb lila hoverkor */
+        }
+
+        /* Főoldal teteje (Hero) */
         .hero {
             text-align: center;
-            padding: 140px 20px 140px 20px; /* Itt most alul is 140px hely van! */
+            padding: 140px 20px 140px 20px;
         }
 
         .hero img {
@@ -269,8 +286,10 @@
             <a href="ucp.html">UCP</a>
             <a href="#csatlakozas">Segítség</a>
             <a href="#kozosseg">Közösség</a>
-            <a href="#">Discord Szabályzat</a>
-            <a href="#">Szerver Szabályzat</a>
+            <a href="#discord-szabalyzat">Discord Szabályzat</a>
+            <a href="#szerver-szabalyzat">Szerver Szabályzat</a>
+            <!-- Új lila Seelmta letöltése gomb a menüben -->
+            <a href="#" class="launcher-nav-btn">Seelmta letöltése</a>
         </div>
     </div>
 
