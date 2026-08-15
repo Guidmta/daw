@@ -3,96 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEELMTA - Bejelentkezés</title>
+    <title>SEELMTA.HU - Főoldal</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-color: #121212; /* Sötét háttér */
+            background-color: #0d1117;
             color: #ffffff;
             font-family: Arial, sans-serif;
+        }
+
+        /* Felső navigációs sáv */
+        .navbar {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            height: 100vh;
+            padding: 20px 40px;
+            background-color: #161b22;
+            border-bottom: 1px solid #30363d;
         }
-        .login-card {
-            background-color: #1e1e1e;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            width: 300px;
-            text-align: center;
-        }
-        .login-card h2 {
-            margin-bottom: 20px;
-            color: #ff3333;
-        }
-        .input-group {
-            margin-bottom: 15px;
-            text-align: left;
-        }
-        .input-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 14px;
-            color: #bbb;
-        }
-        .input-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #333;
-            background-color: #2c2c2c;
-            color: #fff;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        .login-btn {
-            width: 100%;
-            padding: 10px;
-            background-color: #ff3333;
-            border: none;
-            color: white;
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-weight: bold;
+            font-size: 18px;
+        }
+
+        .nav-brand img {
+            width: 30px;
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #c9d1d9;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        /* Fő tartalom */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            color: #2ea043;
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: #8b949e;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .cta-btn {
+            background-color: #2ea043;
+            color: white;
+            padding: 12px 25px;
             border-radius: 5px;
-            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
             transition: background 0.3s;
         }
-        .login-btn:hover {
-            background-color: #cc0000;
+
+        .cta-btn:hover {
+            background-color: #238636;
         }
     </style>
 </head>
 <body>
 
-    <div class="login-card">
-        <!-- Itt a SEELMTA Logo helye -->
-        <h2>SEELMTA</h2>
-        <form id="loginForm" onsubmit="handleLogin(event)">
-            <div class="input-group">
-                <label for="username">Felhasználónév</label>
-                <input type="text" id="username" required>
-            </div>
-            <div class="input-group">
-                <label for="password">Jelszó</label>
-                <input type="password" id="password" required>
-            </div>
-            <button type="submit" class="login-btn">Bejelentkezés</button>
-        </form>
+    <!-- Felső sáv menüvel -->
+    <div class="navbar">
+        <div class="nav-brand">
+            <img src="logo.png" alt="Logo">
+            <span>SEELMTA.HU</span>
+        </div>
+        <div class="nav-links">
+            <!-- Itt mutat az UCP gomb az ucp.html fájlra -->
+            <a href="ucp.html">UCP</a>
+            <a href="#">Segítség</a>
+            <a href="#">Közösség</a>
+            <a href="discord-szabalyzat">Discord Szabályzat</a>
+            <a href="szabalyzat">Szerver Szabályzat</a>
+        </div>
     </div>
 
-    <script>
-        function handleLogin(event) {
-            event.preventDefault(); // Megakadályozza az alapértelmezett oldalfrissítést
-            
-            // Itt elmenthetjük a nevet a böngészőbe, hogy a dashboard is tudja
-            const username = document.getElementById('username').value;
-            localStorage.setItem('seelmta_user', username);
-
-            // Átirányítás a dashboardra
-            window.location.href = 'dashboard.html';
-        }
-    </script>
+    <!-- Főoldal közepe -->
+    <div class="hero">
+        <img src="logo.png" alt="SEELMTA Logo">
+        <h1>SEELMTA</h1>
+        <p>Kezdd el a saját RP Karaktered a SEELMTA szerverén, és alakítsd úgy a karaktered - ahogyan szeretnéd!</p>
+        <a href="#" class="cta-btn">► Csatlakozz most</a>
+    </div>
 
 </body>
 </html>
