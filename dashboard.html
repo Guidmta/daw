@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEELMTA - Vezérlőpult</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #1e1e1e;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #ff3333;
+        }
+        .container {
+            padding: 40px;
+        }
+        .logout-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .logout-btn:hover {
+            background-color: #ff3333;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>SEELMTA UCP</h2>
+        <div>
+            Üdvözöllek, <span id="welcomeUser" style="color: #ff3333; font-weight: bold;">Játékos</span>!
+            <button class="logout-btn" onclick="logout()">Kijelentkezés</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <h3>Irányítópult</h3>
+        <p>Itt találod a karaktered adatait, statisztikáit és egyéb beállításait.</p>
+        <!-- Ide jöhetnek majd a további UCP dobozok / adatok -->
+    </div>
+
+    <script>
+        // Kiolvassuk a nevet, amit beíráskor megadtunk
+        const savedUser = localStorage.getItem('seelmta_user');
+        if (savedUser) {
+            document.getElementById('welcomeUser').textContent = savedUser;
+        }
+
+        function logout() {
+            localStorage.removeItem('seelmta_user');
+            window.location.href = 'index.html';
+        }
+    </script>
+
+</body>
+</html>

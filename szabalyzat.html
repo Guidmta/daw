@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEELMTA - Szerver Szabályzat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0b0e14;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Navigáció */
+        nav {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 25px 40px;
+            gap: 20px;
+            z-index: 10;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #28a745;
+        }
+
+        nav span {
+            color: #333a48;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            padding: 120px 20px 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 900;
+            color: #28a745;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Kártyák */
+        .card {
+            background-color: #121722;
+            border: 1px solid #1a202c;
+            border-radius: 12px;
+            padding: 30px;
+            width: 100%;
+            margin-bottom: 25px;
+            scroll-margin-top: 100px;
+        }
+
+        .card h2 {
+            font-size: 22px;
+            color: #28a745;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #1a202c;
+            padding-bottom: 10px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            color: #ffffff;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card p, .card li {
+            color: #a0a5b5;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .card ul, .card ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Lábléc */
+        footer {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 20px;
+            border-top: 1px solid #1a202c;
+            color: #a0a5b5;
+            font-size: 14px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .footer-logo img {
+            width: 25px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigáció -->
+    <nav>
+        <a href="index.html">Főoldal</a>
+        <span>|</span>
+        <a href="discord-szabalyzat.html">Discord Szabályzat</a>
+        <span>|</span>
+        <a href="szabalyzat.html" style="color: #28a745;">Szerver Szabályzat</a>
+    </nav>
+
+    <div class="container">
+        <h1>SEELMTA - Szerver Szabályzat</h1>
+
+        <!-- Alapvető fogalmak -->
+        <div class="card">
+            <h2>Általános szabályok / fogalmak</h2>
+            <p><span class="highlight">A szerver Nyelve:</span> Hivatalos nyelve a magyar. Ezen nyelvtől eltérni csak fórumon élménykép/off topic részegben lehet.</p>
+            <p><span class="highlight">MG (MetaGaming):</span> OOC információ felhasználása IC. Pl.: Például chatboxból kiolvasott karakter név, majd szerepen belül felhasználod, pl.: feljelented.</p>
+            <p><span class="highlight">LK (Levelkill):</span> Más játékos szándékos ölése, hogy ne érje el a következő szintet.</p>
+            <p><span class="highlight">DM (DeathMatch):</span> Ok nélküli ölése, vagy bántalmazása a másiknak.</p>
+            <p><span class="highlight">RK (RevengeKill):</span> Halálod után visszamész a helyszínre és megölöd az ellenségedet.</p>
+            <p><span class="highlight">SK (SpawnKill):</span> Spawnolási ponton való ölés.</p>
+        </div>
+
+        <!-- Accountra/karakterre vonatkozó szabályok -->
+        <div class="card" id="karakter">
+            <h2>Accountra / karakterre vonatkozó szabályok</h2>
+            <p><span class="highlight">Tilos más accountja emelt szintű:</span> Nincs segítségmeléspont Vásárlás.</p>
+            <p><span class="highlight">Karakter adás és csere:</span> A karakter átadása és cseréje szigorúan tilos. Mindenki a saját maga által készített karakterrel kell, hogy játsszon.</p>
+            <p><span class="highlight">Account megosztás:</span> Egy accountot egy ember használhat csak, nem kérheted meg az öcsédet, hogy locsolja meg a farmodat.</p>
+            <p><span class="highlight">OOC kereskedelem:</span> Tilos OOC kereskedelmet minősül be, OOC "fizetni", vagy cserébe adni bármit is IC vagyonért, itemért, stb. vagy accountért. Ugyanakkor nem kell az OOC kereskedelemnek végbemennie, elég a szándék/érdeklődés is a piacon.</p>
+        </div>
+
+        <!-- PP itemekre vonatkozó szabályok -->
+        <div class="card" id="pp">
+            <h2>PP itemekre vonatkozó szabályok</h2>
+            <p><span class="highlight">Játékmenetet befolyásoló itemeket:</span> Csak abban az esetben lehet használni, ha az nem befolyásolja a többiek játékát, nem változtatja meg az RP szituációt.</p>
+            <p><span class="highlight">A halálból való feltámadás:</span> Respawn kötelező mentőkkel, vagy gyógyítás.</p>
+            <p><span class="highlight">Fikarkert:</span> Tilos széfben autókázni használni.</p>
+        </div>
+
+        <!-- Egyedi rendszámokra vonatkozó szabályok -->
+        <div class="card" id="rendszam">
+            <h2>Egyedi rendszámokra vonatkozó szabályok</h2>
+            <p><span class="highlight">A szükséges elő-RP:</span> Az alapszintű RP-t jelent, hogy legalább 20 sornak kell lennie.</p>
+            <p><span class="highlight">Tilos rendszámírás:</span> Olyan szövegek, amik sértik a közerkölcsöt, vagy rasszista kifejezések.</p>
+        </div>
+
+        <!-- Átveréssel kapcsolatos szabályok -->
+        <div class="card" id="atveres">
+            <h2>Átveréssel kapcsolatos szabályok</h2>
+            <p><span class="highlight">Tilos átverni:</span> Ember 50 000 dollár felett.</p>
+            <p><span class="highlight">PP itemek átverése:</span> Tilos bármely olyan tárggyal amivel pénzért/prémiummal vásárolható vagy PP-ből lett vásárolva, tilos átverni.</p>
+        </div>
+
+        <!-- Rendvédelemre vonatkozó szabályok -->
+        <div class="card" id="rendvedelem">
+            <h2>I Rendvédelemre vonatkozó szabályok</h2>
+            <p><span class="highlight">Tilos menteni a túszgyártást:</span> Ha a rendvédelmisek beavatkoznak szigorúan tilos.</p>
+            <p><span class="highlight">Éles fegyver használat:</span> Csak életveszély esetén engedélyezett.</p>
+        </div>
+
+        <!-- Jelenkedéssel / illegális tevékenységekkel kapcsolatos szabályok -->
+        <div class="card" id="illem">
+            <h2>Lövöldözéssel / illegális tevékenységekkel kapcsolatos szabályok</h2>
+            <p><span class="highlight">Tilos jelöletlen rendvédelmi járműre mindaddig:</span> amíg nem bizonyosodsz róla, hogy abban egy rendvédelmi személy tartózkodik.</p>
+            <p><span class="highlight">Fegyvert bárhol se lehet elhelyezni:</span> Szigorúan tilos közterületen fegyverrel rohangálni.</p>
+        </div>
+
+    </div>
+
+    <!-- Lábléc -->
+    <footer>
+        <div class="footer-logo">
+            <img src="./logo.png" alt="SEELMTA Logo">
+            SEELMTA
+        </div>
+        <div>A legmodernebb magyar RolePlay közösség © 2026</div>
+    </footer>
+
+</body>
+</html>
