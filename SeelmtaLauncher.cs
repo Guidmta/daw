@@ -6,11 +6,14 @@ namespace SeelmtaLauncher
 {
     public class MainForm : Form
     {
-        private Panel topBar;
-        private Label titleLabel;
-        private Button closeButton;
+        private Panel sidebarPanel;
+        private Button homeButton;
+        private Button storeButton;
+        private Button webButton;
+        private Button settingsButton;
+        
         private Label mainTitle;
-        private Label versionLabel;
+        private Label versionBadge;
         private Label descLabel;
         private Button startButton;
 
@@ -21,127 +24,111 @@ namespace SeelmtaLauncher
 
         private void InitializeComponent()
         {
-            // Ablak beállításai (Kék háttér, egyedi ablak)
-            this.Size = new Size(900, 580);
-            this.FormBorderStyle = FormBorderStyle.None;
+            // Ablak alapbeállításai (Sötét, modern stílus)
+            this.Size = new Size(1000, 650);
+            this.FormBorderStyle = FormBorderStyle.Sizable;
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.BackColor = Color.FromArgb(11, 19, 43); // Kék háttér (#0b1329)
+            this.BackColor = Color.FromArgb(18, 18, 18); // Sötét háttér
+            this.Text = "Seelmta Launcher";
 
-            // Felső címsor sáv
-            topBar = new Panel
+            // Bal oldalsáv (Panel)
+            sidebarPanel = new Panel
             {
-                Dock = DockStyle.Top,
-                Height = 40,
-                BackColor = Color.FromArgb(28, 37, 65)
-            };
-            
-            // Ablak mozgatása egérrel
-            topBar.MouseDown += (s, e) => {
-                if (e.Button == MouseButtons.Left) {
-                    ReleaseCapture();
-                    SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-                }
+                Dock = DockStyle.Left,
+                Width = 70,
+                BackColor = Color.FromArgb(24, 24, 24)
             };
 
-            titleLabel = new Label
-            {
-                Text = "Seelmta Launcher",
-                ForeColor = Color.White,
-                Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                Location = new Point(15, 10),
-                AutoSize = true
-            };
+            // Oldalsó gombok (ikonok helyett szimbólumok)
+            homeButton = CreateSidebarButton("🏠", 20);
+            storeButton = CreateSidebarButton("💎", 85);
+            webButton = CreateSidebarButton("🌐", 150);
+            settingsButton = CreateSidebarButton("⚙️", 570);
 
-            // Bezárás gomb (X)
-            closeButton = new Button
-            {
-                Text = "✕",
-                ForeColor = Color.White,
-                BackColor = Color.Transparent,
-                FlatStyle = FlatStyle.Flat,
-                Size = new Size(40, 40),
-                Location = new Point(860, 0),
-                Cursor = Cursors.Hand
-            };
-            closeButton.FlatAppearance.BorderSize = 0;
-            closeButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(239, 68, 68);
-            closeButton.Click += (s, e) => Application.Exit();
-
-            topBar.Controls.Add(titleLabel);
-            topBar.Controls.Add(closeButton);
+            sidebarPanel.Controls.Add(homeButton);
+            sidebarPanel.Controls.Add(storeButton);
+            sidebarPanel.Controls.Add(webButton);
+            sidebarPanel.Controls.Add(settingsButton);
 
             // Főcím: Seelmta
             mainTitle = new Label
             {
                 Text = "Seelmta",
                 ForeColor = Color.White,
-                Font = new Font("Segoe UI", 42, FontStyle.Bold),
+                Font = new Font("Segoe UI", 38, FontStyle.Bold),
                 AutoSize = false,
-                Size = new Size(800, 80),
-                Location = new Point(50, 130),
+                Size = new Size(600, 70),
+                Location = new Point(250, 150),
                 TextAlign = ContentAlignment.MiddleCenter
             };
 
-            // Verzió jelvény
-            versionLabel = new Label
+            // Verzió jelvény (v1.3.8)
+            versionBadge = new Label
             {
-                Text = "v1.0.0",
-                ForeColor = Color.FromArgb(147, 197, 253),
-                BackColor = Color.FromArgb(30, 58, 138),
-                Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                Size = new Size(100, 30),
-                Location = new Point(400, 220),
+                Text = "✔  v1.3.8",
+                ForeColor = Color.FromArgb(74, 222, 128),
+                BackColor = Color.FromArgb(20, 40, 30),
+                Font = new Font("Segoe UI", 9, FontStyle.Bold),
+                Size = new Size(90, 28),
+                Location = new Point(505, 235),
                 TextAlign = ContentAlignment.MiddleCenter
             };
 
-            // Leírás
+            // Leírás szöveg
             descLabel = new Label
             {
-                Text = "Légy részese a Seelmta legújabb és legizgalmasabb RolePlay közösségének!\n\nVágj bele a második életedbe, itt minden lehetséges!",
-                ForeColor = Color.FromArgb(203, 213, 225),
+                Text = "Légy részese Magyarország legnagyobb és legismertebb gazdag RolePlay\nközösségének!\n\nVágj bele a második életedbe, itt minden lehetséges!",
+                ForeColor = Color.FromArgb(156, 163, 175),
                 Font = new Font("Segoe UI", 11, FontStyle.Regular),
-                Size = new Size(700, 80),
-                Location = new Point(100, 270),
+                Size = new Size(700, 70),
+                Location = new Point(200, 290),
                 TextAlign = ContentAlignment.MiddleCenter
             };
 
-            // Kék indítás gomb
+            // Zöld Indítás gomb (Amikor rákatintanak, szándékosan SEMMI sem történik)
             startButton = new Button
             {
-                Text = "►  Seelmta indítása",
+                Text = "▶  Seelmta indítása",
                 ForeColor = Color.White,
-                BackColor = Color.FromArgb(37, 99, 235), // Élénkkék
-                Font = new Font("Segoe UI", 13, FontStyle.Bold),
-                Size = new Size(280, 55),
-                Location = new Point(310, 380),
+                BackColor = Color.FromArgb(16, 125, 78), // Zöld szín a kép alapján
+                Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                Size = new Size(260, 50),
+                Location = new Point(420, 390),
                 FlatStyle = FlatStyle.Flat,
                 Cursor = Cursors.Hand
             };
             startButton.FlatAppearance.BorderSize = 0;
-            startButton.FlatAppearance.MouseOverBackColor = Color.FromArgb(29, 78, 216);
 
-            // Fejlesztés alatt üzenet gombra kattintáskor
+            // ITT VAN MEGADVA: Amikor rákattintanak, szándékosan semmi sem történik
             startButton.Click += (s, e) =>
             {
-                MessageBox.Show("Fejlesztés alatt!", "Seelmta Launcher", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Szándékosan üresen hagyva, hogy ne csináljon semmit
             };
 
-            // Elemek hozzáadása
-            this.Controls.Add(topBar);
+            // Vezérlők hozzáadása az ablakhoz
+            this.Controls.Add(sidebarPanel);
             this.Controls.Add(mainTitle);
-            this.Controls.Add(versionLabel);
+            this.Controls.Add(versionBadge);
             this.Controls.Add(descLabel);
             this.Controls.Add(startButton);
         }
 
-        // Windows API az ablak mozgatásához
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
-
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        public static extern bool ReleaseCapture();
+        private Button CreateSidebarButton(string text, int topPosition)
+        {
+            Button btn = new Button
+            {
+                Text = text,
+                ForeColor = Color.White,
+                BackColor = Color.Transparent,
+                FlatStyle = FlatStyle.Flat,
+                Size = new Size(50, 50),
+                Location = new Point(10, topPosition),
+                Cursor = Cursors.Hand,
+                Font = new Font("Segoe UI", 14)
+            };
+            btn.FlatAppearance.BorderSize = 0;
+            return btn;
+        }
 
         [STAThread]
         static void Main()
