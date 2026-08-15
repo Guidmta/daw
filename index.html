@@ -8,7 +8,7 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #121212; /* Sötét háttér */
+            background-color: #121212;
             color: #ffffff;
             font-family: Arial, sans-serif;
             display: flex;
@@ -52,7 +52,6 @@
             border-radius: 5px;
             box-sizing: border-box;
         }
-        /* Emlékezz rám / Adatok megjegyzése stílus */
         .remember-group {
             display: flex;
             align-items: center;
@@ -87,7 +86,6 @@
 <body>
 
     <div class="login-card">
-        <!-- Logó kép -->
         <img src="logo.png" alt="SEELMTA Logo">
         <h2>SEELMTA</h2>
         
@@ -111,7 +109,11 @@
     </div>
 
     <script>
-        // Oldal betöltésekor ellenőrizzük, hogy van-e mentett név
+        // Kitöröljük a korábbi hibás elmentett "q"-t, hogy tiszta lappal induljon
+        if (localStorage.getItem('seelmta_remembered_user') === 'q') {
+            localStorage.removeItem('seelmta_remembered_user');
+        }
+
         window.onload = function() {
             const savedUser = localStorage.getItem('seelmta_remembered_user');
             if (savedUser) {
@@ -121,26 +123,19 @@
         };
 
         function handleLogin(event) {
-            event.preventDefault(); // Megakadályozza az alapértelmezett oldalfrissítést
-            
+            event.preventDefault();
             const username = document.getElementById('username').value;
             const rememberMe = document.getElementById('rememberMe').checked;
 
-            // Ha be van pipálva, elmentjük a nevet
             if (rememberMe) {
                 localStorage.setItem('seelmta_remembered_user', username);
             } else {
-                // Ha nincs bepipálva, töröljük a mentést
                 localStorage.removeItem('seelmta_remembered_user');
             }
 
-            // Általános mentés a sessionhöz is, hogy a dashboard tudja ki Lépett be
             localStorage.setItem('seelmta_user', username);
-
-            // Átirányítás a dashboardra
             window.location.href = 'dashboard.html';
         }
     </script>
-
 </body>
 </html>
