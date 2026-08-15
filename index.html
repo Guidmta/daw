@@ -61,7 +61,7 @@
             color: #ffffff;
         }
 
-        /* Lila launcher gomb a menüben, közvetlen letöltéssel */
+        /* Lila launcher gomb a menüben */
         .launcher-nav-btn {
             background-color: #8b5cf6;
             color: white;
@@ -250,28 +250,14 @@
         }
 
         /* Alsó lábléc */
-        footer {
-            background-color: #161b22;
-            border-top: 1px solid #30363d;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #8b949e;
-            font-size: 14px;
-        }
+        <footer>
+            <div class="footer-brand">
+                <img src="logo.png" alt="Logo">
+                <span>SEELMTA</span>
+            </div>
+            <div>A legmodernebb magyar RolePlay közösség © 2026</div>
+        </footer>
 
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #ffffff;
-            font-weight: bold;
-        }
-
-        .footer-brand img {
-            width: 25px;
-        }
     </style>
 </head>
 <body>
@@ -288,8 +274,8 @@
             <a href="#kozosseg">Közösség</a>
             <a href="#discord-szabalyzat">Discord Szabályzat</a>
             <a href="#szerver-szabalyzat">Szerver Szabályzat</a>
-            <!-- Lila gomb, ami azonnal letölti a launchert (SeelmtaLauncher.exe) -->
-            <a href="SeelmtaLauncher.exe" class="launcher-nav-btn" download>Seelmta letöltése</a>
+            <!-- Itt a link helyére beillesztheted majd a letöltési címet, amikor a fájl elérhető lesz -->
+            <a href="https://github.com/hasznalonev/seelmta/releases" target="_blank" class="launcher-nav-btn">Seelmta letöltése</a>
         </div>
     </div>
 
