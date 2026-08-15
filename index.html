@@ -3,361 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEELMTA.HU - Főoldal</title>
+    <title>SEELMTA - Bejelentkezés</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-color: #0d1117;
+            background-color: #121212; /* Sötét háttér */
             color: #ffffff;
             font-family: Arial, sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        /* Felső navigációs sáv */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 70px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 0 40px;
-            background-color: #161b22;
-            border-bottom: 1px solid #30363d;
-            box-sizing: border-box;
-            z-index: 1000;
+            height: 100vh;
         }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: bold;
-            font-size: 18px;
-            color: #ffffff;
-        }
-
-        .nav-brand img {
-            width: 30px;
-            height: auto;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .nav-links a {
-            color: #c9d1d9;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #ffffff;
-        }
-
-        /* Főoldal teteje (Hero) */
-        .hero {
+        .login-card {
+            background-color: #1e1e1e;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            width: 320px;
             text-align: center;
-            padding: 140px 20px 140px 20px;
         }
-
-        .hero img {
-            width: 80px;
+        .login-card img {
+            width: 70px;
             height: auto;
-            margin-bottom: 15px;
-        }
-
-        .hero h1 {
-            color: #2ea043;
-            font-size: 42px;
             margin-bottom: 10px;
         }
-
-        .hero p {
-            color: #8b949e;
-            font-size: 16px;
-            margin-bottom: 30px;
-        }
-
-        .cta-btn {
-            background-color: #2ea043;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
-            display: inline-block;
-        }
-
-        .cta-btn:hover {
-            background-color: #238636;
-        }
-
-        /* Csatlakozás szekció */
-        .section-container {
-            max-width: 1100px;
-            margin: 0 auto 30px auto;
-            padding: 0 20px;
-        }
-
-        .connect-box {
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 10px;
-            padding: 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .connect-box img {
-            width: 400px;
-            border-radius: 5px;
-        }
-
-        .connect-content h2 {
-            margin-top: 0;
-            color: #ffffff;
-        }
-
-        .connect-content p {
-            color: #8b949e;
-            line-height: 1.5;
-        }
-
-        .connect-content ol {
-            color: #c9d1d9;
-            padding-left: 20px;
-            line-height: 1.8;
-        }
-
-        .connect-content .footer-text {
-            color: #2ea043;
-            font-weight: bold;
-            margin: 15px 0;
-        }
-
-        /* Rendszerkövetelmények */
-        .specs-grid {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .spec-card {
-            flex: 1;
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 10px;
-            padding: 30px;
-        }
-
-        .spec-card h3 {
-            margin-top: 0;
-            color: #ffffff;
-            border-bottom: 1px solid #30363d;
-            padding-bottom: 10px;
-        }
-
-        .spec-card ul {
-            list-style: none;
-            padding: 0;
-            color: #c9d1d9;
-            line-height: 2;
-            font-size: 14px;
-        }
-
-        .spec-card ul li strong {
-            color: #ffffff;
-        }
-
-        /* Discord doboz */
-        .discord-box {
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 10px;
-            padding: 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 50px;
-        }
-
-        .discord-content h3 {
-            margin-top: 0;
-            color: #ffffff;
-        }
-
-        .discord-content p {
-            color: #8b949e;
+        .login-card h2 {
             margin-bottom: 20px;
+            color: #ff3333;
         }
-
-        .discord-content ul {
-            list-style: none;
-            padding: 0;
-            color: #2ea043;
-            line-height: 1.8;
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
             font-size: 14px;
+            color: #bbb;
         }
-
-        .discord-btn {
-            background-color: #5865F2;
-            color: white;
-            padding: 12px 25px;
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #333;
+            background-color: #2c2c2c;
+            color: #fff;
             border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
-            display: inline-flex;
+            box-sizing: border-box;
+        }
+        /* Emlékezz rám / Adatok megjegyzése stílus */
+        .remember-group {
+            display: flex;
             align-items: center;
             gap: 8px;
-        }
-
-        .discord-btn:hover {
-            background-color: #4752C4;
-        }
-
-        .discord-btn svg {
-            width: 20px;
-            height: 20px;
-            fill: white;
-        }
-
-        /* Alsó lábléc */
-        footer {
-            background-color: #161b22;
-            border-top: 1px solid #30363d;
-            padding: 30px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #8b949e;
+            margin-bottom: 20px;
             font-size: 14px;
+            color: #bbb;
+            text-align: left;
+            cursor: pointer;
         }
-
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .remember-group input {
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff3333;
+            border: none;
+            color: white;
             font-weight: bold;
-            color: #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
         }
-
-        .footer-brand img {
-            width: 25px;
-            height: auto;
+        .login-btn:hover {
+            background-color: #cc0000;
         }
     </style>
 </head>
 <body>
 
-    <!-- Felső sáv menüvel -->
-    <div class="navbar">
-        <div class="nav-brand">
-            <img src="logo.png" alt="Logo">
-            <span>SEELMTA.HU</span>
-        </div>
-        <div class="nav-links">
-            <a href="ucp.html">UCP</a>
-            <a href="#csatlakozas">Segítség</a>
-            <a href="#kozosseg">Közösség</a>
-            <a href="#discord-szabalyzat">Discord Szabályzat</a>
-            <a href="#szerver-szabalyzat">Szerver Szabályzat</a>
-        </div>
-    </div>
-
-    <!-- Főoldal teteje -->
-    <div class="hero">
+    <div class="login-card">
+        <!-- Logó kép -->
         <img src="logo.png" alt="SEELMTA Logo">
-        <h1>SEELMTA</h1>
-        <p>Kezdd el a saját RP Karaktered a SEELMTA szerverén, és alakítsd úgy a karaktered - ahogyan szeretnéd!</p>
-        <a href="#csatlakozas" class="cta-btn">► Csatlakozz most</a>
-    </div>
-
-    <!-- Görgethető tartalmak -->
-    <div class="section-container" id="csatlakozas">
+        <h2>SEELMTA</h2>
         
-        <!-- Csatlakozás / Letöltés doboz -->
-        <div class="connect-box">
-            <div class="connect-content">
-                <h2>Csatlakozás a SEELMTA szerverére</h2>
-                <p><strong>Légy részese Magyarország legnagyobb és legoptimalizáltabb GazdagRP közösségének!</strong><br>Vágj bele a második életedbe, itt minden lehetséges!</p>
-                <ol>
-                    <li>Grand Theft Auto: San Andreas telepítése</li>
-                    <li>MTA:SA kliens letöltése</li>
-                    <li>MTA:SA kliens indítása</li>
-                    <li>SEELMTA szócska begépelése a keresőbe</li>
-                </ol>
-                <div class="footer-text">Kellemes időtöltést kívánunk!</div>
-                <a href="https://multitheftauto.com/" target="_blank" class="cta-btn">↓ MTA:SA letöltése</a>
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="input-group">
+                <label for="username">Felhasználónév</label>
+                <input type="text" id="username" required>
             </div>
-            <img src="monitor.png" alt="MTA Monitor">
-        </div>
+            <div class="input-group">
+                <label for="password">Jelszó</label>
+                <input type="password" id="password" required>
+            </div>
 
-        <!-- Rendszerkövetelmények -->
-        <div class="specs-grid">
-            <div class="spec-card">
-                <h3>Minimum rendszerkövetelmény</h3>
-                <ul>
-                    <li><strong>Operációs rendszer:</strong> Windows 10</li>
-                    <li><strong>CPU:</strong> Intel Core 2 Quad CPU Q6600 @ 2.40GHz / AMD Phenom 9850 Quad-Core Processor @ 2.5GHz</li>
-                    <li><strong>RAM:</strong> 6GB</li>
-                    <li><strong>Videókártya:</strong> NVIDIA 9800 GT 1GB / AMD HD 4870 1GB</li>
-                    <li><strong>Felbontás:</strong> legalább 1600x900</li>
-                    <li><strong>Tárhely:</strong> 10GB</li>
-                </ul>
-            </div>
-            <div class="spec-card">
-                <h3>Ajánlott rendszerkövetelmény</h3>
-                <ul>
-                    <li><strong>Operációs rendszer:</strong> Windows 10/11</li>
-                    <li><strong>CPU:</strong> Intel Core i5 3470 @ 3.2GHz (4 CPUs) / AMD X8 FX-8350 @ 4GHz (8 CPUs)</li>
-                    <li><strong>RAM:</strong> 12GB</li>
-                    <li><strong>Videókártya:</strong> NVIDIA GTX 660 2GB / AMD HD 7870 2GB</li>
-                    <li><strong>Felbontás:</strong> legalább 1920x1080</li>
-                    <li><strong>Tárhely:</strong> 15GB (SSD)</li>
-                </ul>
-            </div>
-        </div>
+            <!-- Adatok megjegyzése pipa -->
+            <label class="remember-group">
+                <input type="checkbox" id="rememberMe"> Adatok megjegyzése
+            </label>
 
-        <!-- Discord doboz -->
-        <div class="discord-box" id="kozosseg">
-            <div class="discord-content">
-                <h3>Csatlakozz Discord szerverünkre</h3>
-                <p>Légy részese a legaktívabb MTA közösségnek! Kérdezz, beszélgess más játékosokkal, értesülj az eseményekről első kézből.</p>
-                <ul>
-                    <li>✔ Közvetlenül tudsz beszélni a vezetőséggel</li>
-                    <li>✔ Eseményekkel és a versenyekkel tisztában leszel</li>
-                    <li>✔ Amennyiben valamit jelenteni itt tudod megtenni</li>
-                </ul>
-            </div>
-            <a href="https://discord.gg/tVzp7sYgv" target="_blank" class="discord-btn">
-                <svg viewBox="0 0 127.14 96.36"><path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1,105.25,105.25,0,0,0,32.19-16.15c2.62-27.28-4.52-51.2-19.49-72.15ZM42.45,65.69C36.18,65.69,31,60,31,53s5.18-12.72,11.45-12.72S53.9,46,53.88,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5.18-12.72,11.44-12.72S96.15,46,96.13,53,91,65.69,84.69,65.69Z"/></svg>
-                Csatlakozás
-            </a>
-        </div>
-
+            <button type="submit" class="login-btn">Bejelentkezés</button>
+        </form>
     </div>
 
-    <!-- Lábléc -->
-    <footer>
-        <div class="footer-brand">
-            <img src="logo.png" alt="Logo">
-            <span>SEELMTA</span>
-        </div>
-        <div>A legmodernebb magyar RolePlay közösség © 2026</div>
-    </footer>
+    <script>
+        // Oldal betöltésekor ellenőrizzük, hogy van-e mentett név
+        window.onload = function() {
+            const savedUser = localStorage.getItem('seelmta_remembered_user');
+            if (savedUser) {
+                document.getElementById('username').value = savedUser;
+                document.getElementById('rememberMe').checked = true;
+            }
+        };
+
+        function handleLogin(event) {
+            event.preventDefault(); // Megakadályozza az alapértelmezett oldalfrissítést
+            
+            const username = document.getElementById('username').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+
+            // Ha be van pipálva, elmentjük a nevet
+            if (rememberMe) {
+                localStorage.setItem('seelmta_remembered_user', username);
+            } else {
+                // Ha nincs bepipálva, töröljük a mentést
+                localStorage.removeItem('seelmta_remembered_user');
+            }
+
+            // Általános mentés a sessionhöz is, hogy a dashboard tudja ki Lépett be
+            localStorage.setItem('seelmta_user', username);
+
+            // Átirányítás a dashboardra
+            window.location.href = 'dashboard.html';
+        }
+    </script>
 
 </body>
 </html>
